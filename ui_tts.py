@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsXaIvLm.ui'
+## Form generated from reading UI file 'ttsfEsDhO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -17,8 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtOpenGLWidgets import QOpenGLWidget
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QSpinBox,
-    QTextBrowser, QTextEdit, QVBoxLayout, QWidget)
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QSpinBox, QTextBrowser, QTextEdit, QVBoxLayout,
+    QWidget)
 
 from pyqtgraph import PlotWidget
 import resources_rc
@@ -83,14 +84,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.ttsChoice)
 
-        self.languageChoice = QSpinBox(self.widget)
-        self.languageChoice.setObjectName(u"languageChoice")
-        self.languageChoice.setMinimum(1)
-        self.languageChoice.setMaximum(5)
-        self.languageChoice.setSingleStep(1)
-        self.languageChoice.setStepType(QAbstractSpinBox.DefaultStepType)
+        self.languageChoiceTTS = QSpinBox(self.widget)
+        self.languageChoiceTTS.setObjectName(u"languageChoiceTTS")
+        self.languageChoiceTTS.setMinimum(1)
+        self.languageChoiceTTS.setMaximum(6)
+        self.languageChoiceTTS.setSingleStep(1)
+        self.languageChoiceTTS.setStepType(QAbstractSpinBox.DefaultStepType)
 
-        self.horizontalLayout_2.addWidget(self.languageChoice)
+        self.horizontalLayout_2.addWidget(self.languageChoiceTTS)
 
         self.voiceChoice = QSpinBox(self.widget)
         self.voiceChoice.setObjectName(u"voiceChoice")
@@ -152,21 +153,33 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.label_4)
 
-        self.ttsChoice_2 = QSpinBox(self.widget_3)
-        self.ttsChoice_2.setObjectName(u"ttsChoice_2")
-        self.ttsChoice_2.setMinimum(1)
-        self.ttsChoice_2.setMaximum(4)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_3.addWidget(self.ttsChoice_2)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
-        self.languageChoice_2 = QSpinBox(self.widget_3)
-        self.languageChoice_2.setObjectName(u"languageChoice_2")
-        self.languageChoice_2.setMinimum(1)
-        self.languageChoice_2.setMaximum(5)
-        self.languageChoice_2.setSingleStep(1)
-        self.languageChoice_2.setStepType(QAbstractSpinBox.DefaultStepType)
+        self.sttChoice = QSpinBox(self.widget_3)
+        self.sttChoice.setObjectName(u"sttChoice")
+        self.sttChoice.setMinimum(1)
+        self.sttChoice.setMaximum(1)
 
-        self.horizontalLayout_3.addWidget(self.languageChoice_2)
+        self.horizontalLayout_3.addWidget(self.sttChoice)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
+        self.languageChoiceSTT = QSpinBox(self.widget_3)
+        self.languageChoiceSTT.setObjectName(u"languageChoiceSTT")
+        self.languageChoiceSTT.setMinimum(1)
+        self.languageChoiceSTT.setMaximum(5)
+        self.languageChoiceSTT.setSingleStep(1)
+        self.languageChoiceSTT.setStepType(QAbstractSpinBox.DefaultStepType)
+
+        self.horizontalLayout_3.addWidget(self.languageChoiceSTT)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
         self.recSTTbtn = QPushButton(self.widget_3)
         self.recSTTbtn.setObjectName(u"recSTTbtn")
@@ -180,6 +193,7 @@ class Ui_MainWindow(object):
 
         self.stopRecSTTbtn = QPushButton(self.widget_3)
         self.stopRecSTTbtn.setObjectName(u"stopRecSTTbtn")
+        self.stopRecSTTbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/Bold/square.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.stopRecSTTbtn.setIcon(icon2)
@@ -190,10 +204,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.widget_3)
 
-        self.textBrowser = QTextBrowser(self.sttContainer)
-        self.textBrowser.setObjectName(u"textBrowser")
+        self.sttTextBrowser = QTextBrowser(self.sttContainer)
+        self.sttTextBrowser.setObjectName(u"sttTextBrowser")
+        self.sttTextBrowser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
 
-        self.verticalLayout_3.addWidget(self.textBrowser)
+        self.verticalLayout_3.addWidget(self.sttTextBrowser)
 
 
         self.verticalLayout_2.addWidget(self.sttContainer)
@@ -223,21 +238,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.label_6)
 
-        self.ttsChoice_3 = QSpinBox(self.widget_4)
-        self.ttsChoice_3.setObjectName(u"ttsChoice_3")
-        self.ttsChoice_3.setMinimum(1)
-        self.ttsChoice_3.setMaximum(4)
+        self.stsChoice = QSpinBox(self.widget_4)
+        self.stsChoice.setObjectName(u"stsChoice")
+        self.stsChoice.setMinimum(1)
+        self.stsChoice.setMaximum(4)
 
-        self.horizontalLayout_4.addWidget(self.ttsChoice_3)
+        self.horizontalLayout_4.addWidget(self.stsChoice)
 
-        self.languageChoice_3 = QSpinBox(self.widget_4)
-        self.languageChoice_3.setObjectName(u"languageChoice_3")
-        self.languageChoice_3.setMinimum(1)
-        self.languageChoice_3.setMaximum(5)
-        self.languageChoice_3.setSingleStep(1)
-        self.languageChoice_3.setStepType(QAbstractSpinBox.DefaultStepType)
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_4.addWidget(self.languageChoice_3)
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_5)
+
+        self.language1ChoiceSTS = QSpinBox(self.widget_4)
+        self.language1ChoiceSTS.setObjectName(u"language1ChoiceSTS")
+        self.language1ChoiceSTS.setMinimum(1)
+        self.language1ChoiceSTS.setMaximum(5)
+        self.language1ChoiceSTS.setSingleStep(1)
+        self.language1ChoiceSTS.setStepType(QAbstractSpinBox.DefaultStepType)
+
+        self.horizontalLayout_4.addWidget(self.language1ChoiceSTS)
 
         self.label_7 = QLabel(self.widget_4)
         self.label_7.setObjectName(u"label_7")
@@ -245,12 +264,16 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.label_7, 0, Qt.AlignHCenter)
 
-        self.spinBox = QSpinBox(self.widget_4)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setMinimum(1)
-        self.spinBox.setMaximum(6)
+        self.language2ChoiceSTS = QSpinBox(self.widget_4)
+        self.language2ChoiceSTS.setObjectName(u"language2ChoiceSTS")
+        self.language2ChoiceSTS.setMinimum(1)
+        self.language2ChoiceSTS.setMaximum(6)
 
-        self.horizontalLayout_4.addWidget(self.spinBox)
+        self.horizontalLayout_4.addWidget(self.language2ChoiceSTS)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
         self.recSTSbtn = QPushButton(self.widget_4)
         self.recSTSbtn.setObjectName(u"recSTSbtn")
@@ -262,6 +285,7 @@ class Ui_MainWindow(object):
 
         self.stopRecSTSbtn = QPushButton(self.widget_4)
         self.stopRecSTSbtn.setObjectName(u"stopRecSTSbtn")
+        self.stopRecSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.stopRecSTSbtn.setIcon(icon2)
         self.stopRecSTSbtn.setIconSize(QSize(32, 24))
 
@@ -269,6 +293,7 @@ class Ui_MainWindow(object):
 
         self.playSTSbtn = QPushButton(self.widget_4)
         self.playSTSbtn.setObjectName(u"playSTSbtn")
+        self.playSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.playSTSbtn.setIcon(icon)
         self.playSTSbtn.setIconSize(QSize(32, 24))
 
@@ -281,15 +306,20 @@ class Ui_MainWindow(object):
         self.widget_2.setObjectName(u"widget_2")
         self.horizontalLayout = QHBoxLayout(self.widget_2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.textBrowser_2 = QTextBrowser(self.widget_2)
-        self.textBrowser_2.setObjectName(u"textBrowser_2")
+        self.stsText1Browser = QTextBrowser(self.widget_2)
+        self.stsText1Browser.setObjectName(u"stsText1Browser")
+        self.stsText1Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
 
-        self.horizontalLayout.addWidget(self.textBrowser_2)
+        self.horizontalLayout.addWidget(self.stsText1Browser)
 
-        self.textBrowser_3 = QTextBrowser(self.widget_2)
-        self.textBrowser_3.setObjectName(u"textBrowser_3")
+        self.stsText2Browser = QTextBrowser(self.widget_2)
+        self.stsText2Browser.setObjectName(u"stsText2Browser")
+        font2 = QFont()
+        font2.setBold(False)
+        self.stsText2Browser.setFont(font2)
+        self.stsText2Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
 
-        self.horizontalLayout.addWidget(self.textBrowser_3)
+        self.horizontalLayout.addWidget(self.stsText2Browser)
 
 
         self.verticalLayout_4.addWidget(self.widget_2)
@@ -313,10 +343,10 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.ttsChoice.setPrefix(QCoreApplication.translate("MainWindow", u"TTS ", None))
 #if QT_CONFIG(tooltip)
-        self.languageChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
+        self.languageChoiceTTS.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.languageChoice.setSuffix("")
-        self.languageChoice.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
+        self.languageChoiceTTS.setSuffix("")
+        self.languageChoiceTTS.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
 #if QT_CONFIG(tooltip)
         self.voiceChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Voice 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> Female</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Voice 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> Male</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Voice 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> Robot</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -335,37 +365,48 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Speech to Text App", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Input", None))
 #if QT_CONFIG(tooltip)
-        self.ttsChoice_2.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> Pico2Wave [Linux command]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> Espeak [Linux command]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> Pyttsx [Python Package]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> Gtts [Google tts online | Python package]</span></p></body></html>", None))
+        self.sttChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">STT 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> speech_recognition [Python Package | online]</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.ttsChoice_2.setPrefix(QCoreApplication.translate("MainWindow", u"STT ", None))
+        self.sttChoice.setPrefix(QCoreApplication.translate("MainWindow", u"STT ", None))
 #if QT_CONFIG(tooltip)
-        self.languageChoice_2.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
+        self.languageChoiceSTT.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.languageChoice_2.setSuffix("")
-        self.languageChoice_2.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
+        self.languageChoiceSTT.setSuffix("")
+        self.languageChoiceSTT.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
 #if QT_CONFIG(tooltip)
-        self.recSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Play</span></p></body></html>", None))
+        self.recSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Record</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.recSTTbtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.stopRecSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Stop recording, and Transcript</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.stopRecSTTbtn.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Speech to Speech App", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Input", None))
 #if QT_CONFIG(tooltip)
-        self.ttsChoice_3.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> Pico2Wave [Linux command]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> Espeak [Linux command]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> Pyttsx [Python Package]</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">TTS 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> Gtts [Google tts online | Python package]</span></p></body></html>", None))
+        self.stsChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">STS 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> Coming Soon</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.ttsChoice_3.setPrefix(QCoreApplication.translate("MainWindow", u"STS ", None))
+        self.stsChoice.setPrefix(QCoreApplication.translate("MainWindow", u"STS ", None))
 #if QT_CONFIG(tooltip)
-        self.languageChoice_3.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
+        self.language1ChoiceSTS.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.languageChoice_3.setSuffix("")
-        self.languageChoice_3.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
+        self.language1ChoiceSTS.setSuffix("")
+        self.language1ChoiceSTS.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"to", None))
-        self.spinBox.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
+        self.language2ChoiceSTS.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
 #if QT_CONFIG(tooltip)
-        self.recSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Play</span></p></body></html>", None))
+        self.recSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Record</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.recSTSbtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.stopRecSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Stop Recording</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.stopRecSTSbtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.playSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Play</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.playSTSbtn.setText("")
+        self.stsText1Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
+        self.stsText2Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
     # retranslateUi
 
