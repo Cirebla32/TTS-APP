@@ -9,7 +9,10 @@ with sr.AudioFile('audio.wav') as source:
     try:
         # utilisation de google speech recognition
         text = r.recognize_google(audio_text, language = 'fr-FR')
+        with open('data/stt_result.txt', 'w') as f:
+            f.write(text)
         print('Convertion de l\'audio en texte ...')
         print(text)
+        
     except:
          print('Sorry.. run again...')

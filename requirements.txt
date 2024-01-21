@@ -1,7 +1,9 @@
 audioplayer==0.6
+beautifulsoup4==4.12.3
 certifi==2023.11.17
 charset-normalizer==3.3.2
 click==8.1.7
+deep-translator==1.11.4
 gTTS==2.5.0
 idna==3.6
 numpy==1.26.3
@@ -15,4 +17,7 @@ PySide6-Essentials==6.6.1
 pyttsx3==2.90
 requests==2.31.0
 shiboken6==6.6.1
+soupsieve==2.5
+SpeechRecognition==3.10.1
+typing_extensions==4.9.0
 urllib3==2.1.0
