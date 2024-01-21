@@ -8,3 +8,4 @@
 - creer un environnement virtuel
 - activez l'environnement virtuel
 - installez les dependances avec la commande `pip install -r requirements.txt`
+- executez le fichier `main.py`
