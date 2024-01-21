@@ -14,11 +14,11 @@ def tts():
     text = window.ui.userInput.toPlainText() if window.ui.userInput.toPlainText() != "" else "."
     if window.ui.ttsChoice.value() == 1:
         lang = ["fr-FR", "en-US", "en-GB", "de-DE", "es-ES", "it-IT"]
-        print("tts@epac>>> " + "pico2wave --lang=" + lang[window.ui.languageChoiceTTS.value() - 1] + """ --wave=/tmp/rc.wav " """ + str(text) + """ " && play /tmp/rc.wav""")
-        a=os.system("pico2wave --lang=" + lang[window.ui.languageChoiceTTS.value() - 1] + """ --wave=/tmp/rc.wav " """ + str(text) + """ " && play /tmp/rc.wav""")
+        print("tts@epac>>> " + "pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
+        a=os.system("pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
     elif window.ui.ttsChoice.value() == 2:
         lang = ["fr", "en", "en", "de", "es", "it"]
-        print("tts@epac>>> " + """pico2wave --lang=fr-FR --wave=/tmp/rc.wav " """ + str(text) + """ " && play /tmp/rc.wav && rm /tmp/rc.wav""")
+        print("tts@epac>>> " + """espeak --lang=fr-FR --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
         a=os.system("espeak -a 200 -w /tmp/rc.wav -v " + lang[window.ui.languageChoiceTTS.value() - 1] + ' " ' + str(text) + """ " && play /tmp/rc.wav""")
     elif window.ui.ttsChoice.value() == 3:
         import pyttsx3
@@ -33,12 +33,11 @@ def tts():
         from gtts import gTTS
         from audioplayer import AudioPlayer
         lang = ["fr", "en", "en", "de", "es", "it"]
-        print("lang>>> ", lang[window.ui.languageChoiceTTS.value() - 1])
         audio = gTTS(text=text, lang=lang[window.ui.languageChoiceTTS.value() - 1])
         audio.save("/tmp/rc.wav")
         AudioPlayer("/tmp/rc.wav").play(block=True)
         #a=os.system("""rm /tmp/rc.wav""")
-
+        
 def stt(): 
     import speech_recognition as sr
     window.ui.sttTextBrowser.clear()
@@ -58,7 +57,6 @@ def stt():
             window.ui.sttTextBrowser.insertPlainText(text)
         except:
             print('Sorry.. run again...')
-        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
