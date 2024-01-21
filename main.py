@@ -57,6 +57,55 @@ def stt():
             window.ui.sttTextBrowser.insertPlainText(text)
         except:
             print('Sorry.. run again...')
+        return text
+
+def translate(text, langSource, langTarget):
+    from deep_translator import GoogleTranslator
+    translated = GoogleTranslator(source=langSource, target=langTarget).translate(text)
+    with open('data/translation_result.txt', 'w') as f:
+            f.write(translated)
+    print(text, '-->', translated)
+    return translated
+
+def sts():
+    #------------------STT---------------------
+    sttLang=window.ui.languageChoiceSTT.value()
+    sttText=window.ui.sttTextBrowser.toPlainText()
+    window.ui.sttTextBrowser.clear()
+    window.ui.languageChoiceSTT.setValue(window.ui.language1ChoiceSTS.value())
+    #Le chemin de l'audio utilisé pour stt étant pareil que celui de sts
+    text = stt()
+    window.ui.languageChoiceSTT.setValue(sttLang)
+    window.ui.sttTextBrowser.clear()
+    window.ui.sttTextBrowser.insertPlainText(sttText)
+    window.ui.stsText1Browser.clear()
+    window.ui.stsText1Browser.insertPlainText(text)
+
+    #---------------TRANSLATE-------------------
+    lang = ["fr", "en", "en", "de", "es", "it"]
+    textTranslated = translate(text, lang[window.ui.language1ChoiceSTS.value()-1], lang[window.ui.language2ChoiceSTS.value()-1])
+    window.ui.stsText2Browser.clear()
+    window.ui.stsText2Browser.insertPlainText(textTranslated)
+
+    #------------------TTS-----------------------
+    ttsText = window.ui.userInput.toPlainText()
+    ttsLang = window.ui.languageChoiceTTS.value()
+    ttsTTS = window.ui.ttsChoice.value()
+    window.ui.ttsChoice.setValue(4) #TTS de Google
+    window.ui.languageChoiceTTS.setValue(window.ui.language2ChoiceSTS.value())
+    window.ui.userInput.clear()
+    window.ui.userInput.setPlainText(textTranslated)
+    tts()
+    window.ui.userInput.clear()
+    window.ui.userInput.setPlainText(ttsText)
+    window.ui.languageChoiceTTS.setValue(ttsLang)
+    window.ui.ttsChoice.setValue(ttsTTS)
+
+def ttt():
+    lang = ["fr", "en", "en", "de", "es", "it"]
+    window.ui.stsText2Browser.clear()
+    window.ui.stsText2Browser.setPlainText(translate(window.ui.stsText1Browser.toPlainText(), lang[window.ui.language1ChoiceSTS.value()-1], lang[window.ui.language2ChoiceSTS.value()-1]))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -67,7 +116,9 @@ if __name__ == "__main__":
     window.ui.playTTSbtn.clicked.connect(tts)
     window.ui.stopRecSTTbtn.clicked.connect(stt)
     window.ui.clearSTTbtn.clicked.connect(window.ui.sttTextBrowser.clear)
-    window.ui.clearSTTbtn.clicked.connect(window.ui.stsText1Browser.clear)
-    window.ui.clearSTTbtn.clicked.connect(window.ui.stsText2Browser.clear)
+    window.ui.playSTSbtn.clicked.connect(sts)
+    window.ui.clearSTSbtn.clicked.connect(window.ui.stsText1Browser.clear)
+    window.ui.clearSTSbtn.clicked.connect(window.ui.stsText2Browser.clear)
+    window.ui.tttBtn.clicked.connect(ttt)
 
     sys.exit(app.exec())

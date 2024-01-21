@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsdCYBSW.ui'
+## Form generated from reading UI file 'ttsxNCftH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -203,6 +203,7 @@ class Ui_MainWindow(object):
 
         self.clearSTTbtn = QPushButton(self.widget_3)
         self.clearSTTbtn.setObjectName(u"clearSTTbtn")
+        self.clearSTTbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
         icon3.addFile(u":/icons/icons/Bold/trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.clearSTTbtn.setIcon(icon3)
@@ -310,6 +311,7 @@ class Ui_MainWindow(object):
 
         self.clearSTSbtn = QPushButton(self.widget_4)
         self.clearSTSbtn.setObjectName(u"clearSTSbtn")
+        self.clearSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.clearSTSbtn.setIcon(icon3)
         self.clearSTSbtn.setIconSize(QSize(18, 24))
 
@@ -325,8 +327,19 @@ class Ui_MainWindow(object):
         self.stsText1Browser = QTextBrowser(self.widget_2)
         self.stsText1Browser.setObjectName(u"stsText1Browser")
         self.stsText1Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
+        self.stsText1Browser.setReadOnly(False)
 
         self.horizontalLayout.addWidget(self.stsText1Browser)
+
+        self.tttBtn = QPushButton(self.widget_2)
+        self.tttBtn.setObjectName(u"tttBtn")
+        self.tttBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/icons/Bold/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.tttBtn.setIcon(icon4)
+        self.tttBtn.setIconSize(QSize(20, 16))
+
+        self.horizontalLayout.addWidget(self.tttBtn)
 
         self.stsText2Browser = QTextBrowser(self.widget_2)
         self.stsText2Browser.setObjectName(u"stsText2Browser")
@@ -334,6 +347,7 @@ class Ui_MainWindow(object):
         font2.setBold(False)
         self.stsText2Browser.setFont(font2)
         self.stsText2Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
+        self.stsText2Browser.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.stsText2Browser)
 
@@ -398,13 +412,13 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.stopRecSTTbtn.setText("")
 #if QT_CONFIG(tooltip)
-        self.clearSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.clearSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Clear</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.clearSTTbtn.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Speech to Speech App", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Input", None))
 #if QT_CONFIG(tooltip)
-        self.stsChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">STS 1:</span><span style=\" font-size:10pt; color:#ffffff;\"> Coming Soon</span></p></body></html>", None))
+        self.stsChoice.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">STS 1:</span><span style=\" font-size:10pt; color:#ffffff;\"/><span style=\" font-family:'Droid Sans Mono','monospace','monospace','Droid Sans Fallback'; font-size:14px; color:#d4d4d4;\">speech_recognition (stt) + deep_translator (ttt) + gtts (tts) </span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.stsChoice.setPrefix(QCoreApplication.translate("MainWindow", u"STS ", None))
 #if QT_CONFIG(tooltip)
@@ -413,6 +427,9 @@ class Ui_MainWindow(object):
         self.language1ChoiceSTS.setSuffix("")
         self.language1ChoiceSTS.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"to", None))
+#if QT_CONFIG(tooltip)
+        self.language2ChoiceSTS.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 1: </span><span style=\" font-size:10pt; color:#ffffff;\">fr-FR</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 2:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-US</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 3:</span><span style=\" font-size:10pt; color:#ffffff;\"> en-GB</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 4:</span><span style=\" font-size:10pt; color:#ffffff;\"> de-DE</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 5:</span><span style=\" font-size:10pt; color:#ffffff;\"> es-ES</span></p><p><span style=\" font-size:10pt; font-weight:700; color:#ffffff;\">Language 6:</span><span style=\" font-size:10pt; color:#ffffff;\"> it-IT</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.language2ChoiceSTS.setPrefix(QCoreApplication.translate("MainWindow", u"Language ", None))
 #if QT_CONFIG(tooltip)
         self.recSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Record</span></p></body></html>", None))
@@ -427,10 +444,14 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.playSTSbtn.setText("")
 #if QT_CONFIG(tooltip)
-        self.clearSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.clearSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Clear</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.clearSTSbtn.setText("")
-        self.stsText1Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
-        self.stsText2Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
+        self.stsText1Browser.setPlaceholderText("")
+#if QT_CONFIG(tooltip)
+        self.tttBtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Translate (TTT)</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.tttBtn.setText("")
+        self.stsText2Browser.setPlaceholderText("")
     # retranslateUi
 
