@@ -84,7 +84,7 @@ def tts_pyttsx3(text):
     engine.runAndWait()
 
 
-def tts_gtts(texte, langNum):
+def tts_gtts(text, langNum):
     """
     Convertit le texte donné en parole en utilisant la bibliothèque gTTS.
 
@@ -99,12 +99,12 @@ def tts_gtts(texte, langNum):
     from audioplayer import AudioPlayer
 
     lang = ["fr", "en", "en", "de", "es", "it"]
-    audio = gTTS(text=texte, lang=lang[langNum - 1])
+    audio = gTTS(text=text, lang=lang[langNum - 1])
     audio.save("data/tts_result.wav")
     AudioPlayer("data/tts_result.wav").play(block=True)
 
 
-def traduire(texte, langSource, langCible):
+def translate(text, langSource, langCible):
     """
     Traduit le texte donné de la langue source à la langue cible en utilisant Google Translator.
 
@@ -118,8 +118,8 @@ def traduire(texte, langSource, langCible):
     """
     from deep_translator import GoogleTranslator
 
-    traduit = GoogleTranslator(source=langSource, target=langCible).translate(texte)
+    traduit = GoogleTranslator(source=langSource, target=langCible).translate(text)
     with open("data/translation_result.txt", "w") as f:
         f.write(traduit)
-    print(texte, "-->", traduit)
+    print(text, "-->", traduit)
     return traduit
