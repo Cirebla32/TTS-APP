@@ -3,7 +3,7 @@ import speech_recognition as sr
 r = sr.Recognizer()
 # Lecture du fichier audio comme source
 # écouter le fichier audio et le stocker dans la variable audio_text
-with sr.AudioFile('audio.wav') as source:
+with sr.AudioFile('data/tts_result.wav') as source:
     audio_text = r.listen(source)
 # recoginize_() La méthode générera une erreur de requête si l'API est inaccessible, utilisant donc la gestion des exceptions
     try:
