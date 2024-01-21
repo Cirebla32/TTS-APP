@@ -81,6 +81,7 @@ def tts_pyttsx3(text):
     else:
         engine = pyttsx3.init("sapi5")
     engine.say(text)
+    engine.save_to_file(text, "data/tts_result.wav")
     engine.runAndWait()
 
 
