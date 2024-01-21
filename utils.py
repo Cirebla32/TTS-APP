@@ -1,6 +1,7 @@
 def tts_espeak(
     langNum=0, text="Ceci est juste un texte de test pour voir si ça marche."
 ):
+    import os
     lang = ["fr", "en", "en", "de", "es", "it"]
     print(
         "tts@epac>>> "
