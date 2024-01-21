@@ -17,7 +17,7 @@ def play():
         print("tts@epac>>> " + "pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
         a=os.system("pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
     elif window.ui.ttsChoice.value() == 2:
-        print("tts@epac>>> " + """pico2wave --lang=fr-FR --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
+        print("tts@epac>>> " + """espeak --lang=fr-FR --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
         a=os.system("""espeak -a 200 -w data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
     elif window.ui.ttsChoice.value() == 3:
         import pyttsx3
