@@ -338,7 +338,7 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>32</width>
+              <width>18</width>
               <height>24</height>
              </size>
             </property>
@@ -361,7 +361,27 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>32</width>
+              <width>18</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="clearSTTbtn">
+            <property name="toolTip">
+             <string>Clear</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/icons/icons/Bold/trash-2.svg</normaloff>:/icons/icons/Bold/trash-2.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
               <height>24</height>
              </size>
             </property>
@@ -535,7 +555,7 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>32</width>
+              <width>18</width>
               <height>24</height>
              </size>
             </property>
@@ -558,7 +578,7 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>32</width>
+              <width>18</width>
               <height>24</height>
              </size>
             </property>
@@ -581,7 +601,27 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>32</width>
+              <width>18</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="clearSTSbtn">
+            <property name="toolTip">
+             <string>Clear</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/icons/icons/Bold/trash-2.svg</normaloff>:/icons/icons/Bold/trash-2.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
               <height>24</height>
              </size>
             </property>

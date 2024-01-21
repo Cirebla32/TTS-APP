@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsfEsDhO.ui'
+## Form generated from reading UI file 'ttsdCYBSW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/Bold/mic.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.recSTTbtn.setIcon(icon1)
-        self.recSTTbtn.setIconSize(QSize(32, 24))
+        self.recSTTbtn.setIconSize(QSize(18, 24))
 
         self.horizontalLayout_3.addWidget(self.recSTTbtn)
 
@@ -197,9 +197,18 @@ class Ui_MainWindow(object):
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/Bold/square.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.stopRecSTTbtn.setIcon(icon2)
-        self.stopRecSTTbtn.setIconSize(QSize(32, 24))
+        self.stopRecSTTbtn.setIconSize(QSize(18, 24))
 
         self.horizontalLayout_3.addWidget(self.stopRecSTTbtn)
+
+        self.clearSTTbtn = QPushButton(self.widget_3)
+        self.clearSTTbtn.setObjectName(u"clearSTTbtn")
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/icons/Bold/trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.clearSTTbtn.setIcon(icon3)
+        self.clearSTTbtn.setIconSize(QSize(18, 24))
+
+        self.horizontalLayout_3.addWidget(self.clearSTTbtn)
 
 
         self.verticalLayout_3.addWidget(self.widget_3)
@@ -279,7 +288,7 @@ class Ui_MainWindow(object):
         self.recSTSbtn.setObjectName(u"recSTSbtn")
         self.recSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.recSTSbtn.setIcon(icon1)
-        self.recSTSbtn.setIconSize(QSize(32, 24))
+        self.recSTSbtn.setIconSize(QSize(18, 24))
 
         self.horizontalLayout_4.addWidget(self.recSTSbtn)
 
@@ -287,7 +296,7 @@ class Ui_MainWindow(object):
         self.stopRecSTSbtn.setObjectName(u"stopRecSTSbtn")
         self.stopRecSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.stopRecSTSbtn.setIcon(icon2)
-        self.stopRecSTSbtn.setIconSize(QSize(32, 24))
+        self.stopRecSTSbtn.setIconSize(QSize(18, 24))
 
         self.horizontalLayout_4.addWidget(self.stopRecSTSbtn)
 
@@ -295,9 +304,16 @@ class Ui_MainWindow(object):
         self.playSTSbtn.setObjectName(u"playSTSbtn")
         self.playSTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.playSTSbtn.setIcon(icon)
-        self.playSTSbtn.setIconSize(QSize(32, 24))
+        self.playSTSbtn.setIconSize(QSize(18, 24))
 
         self.horizontalLayout_4.addWidget(self.playSTSbtn)
+
+        self.clearSTSbtn = QPushButton(self.widget_4)
+        self.clearSTSbtn.setObjectName(u"clearSTSbtn")
+        self.clearSTSbtn.setIcon(icon3)
+        self.clearSTSbtn.setIconSize(QSize(18, 24))
+
+        self.horizontalLayout_4.addWidget(self.clearSTSbtn)
 
 
         self.verticalLayout_4.addWidget(self.widget_4)
@@ -381,6 +397,10 @@ class Ui_MainWindow(object):
         self.stopRecSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Stop recording, and Transcript</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.stopRecSTTbtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.clearSTTbtn.setToolTip(QCoreApplication.translate("MainWindow", u"Clear", None))
+#endif // QT_CONFIG(tooltip)
+        self.clearSTTbtn.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Speech to Speech App", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Input", None))
 #if QT_CONFIG(tooltip)
@@ -406,6 +426,10 @@ class Ui_MainWindow(object):
         self.playSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Play</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.playSTSbtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.clearSTSbtn.setToolTip(QCoreApplication.translate("MainWindow", u"Clear", None))
+#endif // QT_CONFIG(tooltip)
+        self.clearSTSbtn.setText("")
         self.stsText1Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
         self.stsText2Browser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Coming Soon", None))
     # retranslateUi

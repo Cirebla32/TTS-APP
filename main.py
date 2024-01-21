@@ -14,12 +14,12 @@ def tts():
     text = window.ui.userInput.toPlainText() if window.ui.userInput.toPlainText() != "" else "."
     if window.ui.ttsChoice.value() == 1:
         lang = ["fr-FR", "en-US", "en-GB", "de-DE", "es-ES", "it-IT"]
-        print("tts@epac>>> " + "pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
-        a=os.system("pico2wave --lang=" + lang[window.ui.languageChoice.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
+        print("tts@epac>>> " + "pico2wave --lang=" + lang[window.ui.languageChoiceTTS.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
+        a=os.system("pico2wave --lang=" + lang[window.ui.languageChoiceTTS.value() - 1] + """ --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
     elif window.ui.ttsChoice.value() == 2:
         lang = ["fr", "en", "en", "de", "es", "it"]
         print("tts@epac>>> " + """espeak --lang=fr-FR --wave=data/tts_result.wav " """ + str(text) + """ " && play data/tts_result.wav""")
-        a=os.system("espeak -a 200 -w /tmp/rc.wav -v " + lang[window.ui.languageChoiceTTS.value() - 1] + ' " ' + str(text) + """ " && play /tmp/rc.wav""")
+        a=os.system("espeak -a 200 -w data/tts_result.wav -v " + lang[window.ui.languageChoiceTTS.value() - 1] + ' " ' + str(text) + """ " && play data/tts_result.wav""")
     elif window.ui.ttsChoice.value() == 3:
         import pyttsx3
         import platform
@@ -34,9 +34,9 @@ def tts():
         from audioplayer import AudioPlayer
         lang = ["fr", "en", "en", "de", "es", "it"]
         audio = gTTS(text=text, lang=lang[window.ui.languageChoiceTTS.value() - 1])
-        audio.save("/tmp/rc.wav")
-        AudioPlayer("/tmp/rc.wav").play(block=True)
-        #a=os.system("""rm /tmp/rc.wav""")
+        audio.save("data/tts_result.wav")
+        AudioPlayer("data/tts_result.wav").play(block=True)
+        #a=os.system("""rm data/tts_result.wav""")
         
 def stt(): 
     import speech_recognition as sr
@@ -45,7 +45,7 @@ def stt():
     r = sr.Recognizer()
     # Lecture du fichier audio comme source
     # écouter le fichier audio et le stocker dans la variable audio_text
-    with sr.AudioFile('/tmp/rc.wav') as source:
+    with sr.AudioFile('data/tts_result.wav') as source:
         audio_text = r.listen(source)
     # recoginize_() La méthode générera une erreur de requête si l'API est inaccessible, utilisant donc la gestion des exceptions
         try:
@@ -66,5 +66,8 @@ if __name__ == "__main__":
     
     window.ui.playTTSbtn.clicked.connect(tts)
     window.ui.stopRecSTTbtn.clicked.connect(stt)
+    window.ui.clearSTTbtn.clicked.connect(window.ui.sttTextBrowser.clear)
+    window.ui.clearSTTbtn.clicked.connect(window.ui.stsText1Browser.clear)
+    window.ui.clearSTTbtn.clicked.connect(window.ui.stsText2Browser.clear)
 
     sys.exit(app.exec())
