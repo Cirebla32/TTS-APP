@@ -1,5 +1,5 @@
 import sys
-import os
+import platform
 from ui_tts import *
 from utils import *
 
@@ -87,7 +87,10 @@ def sts():
     ttsText = window.ui.userInput.toPlainText()
     ttsLang = window.ui.languageChoiceTTS.value()
     ttsTTS = window.ui.ttsChoice.value()
-    window.ui.ttsChoice.setValue(4)  # TTS de Google
+    if platform.system() == "Linux":
+        window.ui.ttsChoice.setValue(1)  # TTS de pico2wave
+    else:
+        window.ui.ttsChoice.setValue(4)  # TTS de Google
     window.ui.languageChoiceTTS.setValue(window.ui.language2ChoiceSTS.value())
     window.ui.userInput.clear()
     window.ui.userInput.setPlainText(textTranslated)
