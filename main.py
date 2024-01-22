@@ -31,7 +31,17 @@ def tts():
 
 
 
+def stt_recorded():
+    recorded = record(5, "data/recorded_speech.mp3")
+    stt_result = stt_google(recorded)
+    return stt_result
+
 def stt():
+    path_to_speech = "data/tts_result.wav"
+    stt_result = stt_google(path_to_speech)
+    return stt_result
+    
+def stt_google(speech):
     import speech_recognition as sr
 
     window.ui.sttTextBrowser.clear()
@@ -39,7 +49,7 @@ def stt():
     r = sr.Recognizer()
     # Lecture du fichier audio comme source
     # écouter le fichier audio et le stocker dans la variable audio_text
-    with sr.AudioFile("data/tts_result.wav") as source:
+    with sr.AudioFile(speech) as source:
         audio_text = r.listen(source)
         # recoginize_() La méthode générera une erreur de requête si l'API est inaccessible, utilisant donc la gestion des exceptions
         try:
@@ -54,8 +64,6 @@ def stt():
         except:
             print("Sorry.. run again...")
         return text
-
-
 
 
 
@@ -120,8 +128,10 @@ if __name__ == "__main__":
     window.show()
 
     window.ui.playTTSbtn.clicked.connect(tts)
+    # window.ui.recSTTbtn.clicked.connect(stt)
     window.ui.stopRecSTTbtn.clicked.connect(stt)
     window.ui.clearSTTbtn.clicked.connect(window.ui.sttTextBrowser.clear)
+    # window.ui.recSTSbtn.clicked.connect(stt)
     window.ui.playSTSbtn.clicked.connect(sts)
     window.ui.clearSTSbtn.clicked.connect(window.ui.stsText1Browser.clear)
     window.ui.clearSTSbtn.clicked.connect(window.ui.stsText2Browser.clear)

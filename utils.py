@@ -124,3 +124,14 @@ def translate(text, langSource, langCible):
         f.write(traduit)
     print(text, "-->", traduit)
     return traduit
+
+
+def record(seconds, filename):
+    import sounddevice as sd
+    from scipy.io.wavfile import write
+
+    fs = 44100  # Sample rate
+    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
+    sd.wait()  # Wait until recording is finished
+    write(filename, fs, myrecording)  # Save as WAV file
+    return filename
