@@ -22,7 +22,7 @@ def tts_espeak(
     )
     a = os.system(
         "espeak -a 200 -w data/tts_result.wav -v "
-        + lang[langNum - 1]
+        + lang[langNum]
         + ' " '
         + str(text)
         + """ " && play data/tts_result.wav"""
@@ -48,14 +48,14 @@ def tts_pico2wave(
     print(
         "tts@epac>>> "
         + "pico2wave --lang="
-        + lang[langNum - 1]
+        + lang[langNum]
         + """ --wave=data/tts_result.wav " """
         + str(text)
         + """ " && play data/tts_result.wav"""
     )
     a = os.system(
         "pico2wave --lang="
-        + lang[langNum - 1]
+        + lang[langNum]
         + """ --wave=data/tts_result.wav " """
         + str(text)
         + """ " && play data/tts_result.wav"""
@@ -100,7 +100,7 @@ def tts_gtts(text, langNum):
     from audioplayer import AudioPlayer
 
     lang = ["fr", "en", "en", "de", "es", "it"]
-    audio = gTTS(text=text, lang=lang[langNum - 1])
+    audio = gTTS(text=text, lang=lang[langNum])
     audio.save("data/tts_result.wav")
     AudioPlayer("data/tts_result.wav").play(block=True)
 

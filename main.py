@@ -30,14 +30,14 @@ def tts():
         if window.ui.userInput.toPlainText() != ""
         else "."
     )
-    if window.ui.ttsChoice.value() == 1:
-        tts_pico2wave(window.ui.languageChoiceTTS.value(), text)
-    elif window.ui.ttsChoice.value() == 2:
-        tts_espeak(window.ui.languageChoiceTTS.value(), text)
-    elif window.ui.ttsChoice.value() == 3:
+    if window.ui.ttsChoice.currentIndex() == 0:
+        tts_pico2wave(window.ui.languageChoiceTTS.currentIndex(), text)
+    elif window.ui.ttsChoice.currentIndex() == 1:
+        tts_espeak(window.ui.languageChoiceTTS.currentIndex(), text)
+    elif window.ui.ttsChoice.currentIndex() == 2:
         tts_pyttsx3(text)
-    elif window.ui.ttsChoice.value() == 4:
-        tts_gtts(text, window.ui.languageChoiceTTS.value())
+    elif window.ui.ttsChoice.currentIndex() == 3:
+        tts_gtts(text, window.ui.languageChoiceTTS.currentIndex())
 
 
 
@@ -61,6 +61,7 @@ def stt_google(speech):
     r = sr.Recognizer()
     # Lecture du fichier audio comme source
     # écouter le fichier audio et le stocker dans la variable audio_text
+    text = None
     with sr.AudioFile(speech) as source:
         audio_text = r.listen(source)
         # recoginize_() La méthode générera une erreur de requête si l'API est inaccessible, utilisant donc la gestion des exceptions
@@ -68,7 +69,7 @@ def stt_google(speech):
             # utilisation de google speech recognition
             lang = ["fr-FR", "en-US", "en-GB", "de-DE", "es-ES", "it-IT"]
             text = r.recognize_google(
-                audio_text, language=lang[window.ui.languageChoiceSTT.value() - 1]
+                audio_text, language=lang[window.ui.languageChoiceSTT.currentIndex()]
             )
             print("Convertion de l'audio en texte ...")
             print(text)
@@ -81,13 +82,13 @@ def stt_google(speech):
 
 def sts():
     # ------------------STT---------------------
-    sttLang = window.ui.languageChoiceSTT.value()
+    sttLang = window.ui.languageChoiceSTT.currentIndex()
     sttText = window.ui.sttTextBrowser.toPlainText()
     window.ui.sttTextBrowser.clear()
-    window.ui.languageChoiceSTT.setValue(window.ui.language1ChoiceSTS.value())
+    window.ui.languageChoiceSTT.setCurrentIndex(window.ui.language1ChoiceSTS.currentIndex())
     # Le chemin de l'audio utilisé pour stt étant pareil que celui de sts
     text = stt()
-    window.ui.languageChoiceSTT.setValue(sttLang)
+    window.ui.languageChoiceSTT.setCurrentIndex(sttLang)
     window.ui.sttTextBrowser.clear()
     window.ui.sttTextBrowser.insertPlainText(sttText)
     window.ui.stsText1Browser.clear()
@@ -97,28 +98,28 @@ def sts():
     lang = ["fr", "en", "en", "de", "es", "it"]
     textTranslated = translate(
         text,
-        lang[window.ui.language1ChoiceSTS.value() - 1],
-        lang[window.ui.language2ChoiceSTS.value() - 1],
+        lang[window.ui.language1ChoiceSTS.currentIndex()],
+        lang[window.ui.language2ChoiceSTS.currentIndex()],
     )
     window.ui.stsText2Browser.clear()
     window.ui.stsText2Browser.insertPlainText(textTranslated)
 
     # ------------------TTS-----------------------
     ttsText = window.ui.userInput.toPlainText()
-    ttsLang = window.ui.languageChoiceTTS.value()
-    ttsTTS = window.ui.ttsChoice.value()
+    ttsLang = window.ui.languageChoiceTTS.currentIndex()
+    ttsTTS = window.ui.ttsChoice.currentIndex()
     if platform.system() == "Linux":
-        window.ui.ttsChoice.setValue(1)  # TTS de pico2wave
+        window.ui.ttsChoice.setCurrentIndex(0)  # TTS de pico2wave
     else:
-        window.ui.ttsChoice.setValue(4)  # TTS de Google
-    window.ui.languageChoiceTTS.setValue(window.ui.language2ChoiceSTS.value())
+        window.ui.ttsChoice.setCurrentIndex(3)  # TTS de Google
+    window.ui.languageChoiceTTS.setCurrentIndex(window.ui.language2ChoiceSTS.currentIndex())
     window.ui.userInput.clear()
     window.ui.userInput.setPlainText(textTranslated)
     tts()
     window.ui.userInput.clear()
     window.ui.userInput.setPlainText(ttsText)
-    window.ui.languageChoiceTTS.setValue(ttsLang)
-    window.ui.ttsChoice.setValue(ttsTTS)
+    window.ui.languageChoiceTTS.setCurrentIndex(ttsLang)
+    window.ui.ttsChoice.setCurrentIndex(ttsTTS)
 
 
 def ttt():
@@ -127,8 +128,8 @@ def ttt():
     window.ui.stsText2Browser.setPlainText(
         translate(
             window.ui.stsText1Browser.toPlainText(),
-            lang[window.ui.language1ChoiceSTS.value() - 1],
-            lang[window.ui.language2ChoiceSTS.value() - 1],
+            lang[window.ui.language1ChoiceSTS.currentIndex()],
+            lang[window.ui.language2ChoiceSTS.currentIndex()],
         )
     )
 
