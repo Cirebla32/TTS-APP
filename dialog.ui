@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>253</width>
+    <height>186</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item alignment="Qt::AlignLeft">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 3px solid white;
+border-color: rgba(255, 255, 255, 0);
+border-right-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Group 1</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;+ ADJOVI Albéric&lt;/p&gt;&lt;p&gt;+ AÏZANNON Merveille&lt;/p&gt;&lt;p&gt;+ BONOU Habib&lt;/p&gt;&lt;p&gt;+ KIKI Esther&lt;/p&gt;&lt;p&gt;+ MONTCHO Marcolin&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;+ ZINSOU Karl&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

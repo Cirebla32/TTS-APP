@@ -6,9 +6,10 @@ def record(seconds, filename):
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
     sd.wait()  # Wait until recording is finished
     write(filename, fs, myrecording)  # Save as WAV file
+    return filename
 
 
-# record(5, "data/recorded_speech.wav")
+record(5, "data/recorded_speech.wav")
 
 # ----------------------------------------------------
 
@@ -58,4 +59,4 @@ def record2(seconds = 3, filename = "data/recorded_speech.wav"):
     wf.writeframes(b"".join(frames))
     wf.close()
     
-record2(5, "data/recorded_speech.wav")
+# record2(5, "data/recorded_speech.wav")

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsxNCftH.ui'
+## Form generated from reading UI file 'ttsYKgvZu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(643, 534)
+        MainWindow.resize(643, 616)
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 255), stop:1 rgba(249, 158, 251, 255));")
         self.centralwidget = QWidget(MainWindow)
@@ -326,6 +326,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.stsText1Browser = QTextBrowser(self.widget_2)
         self.stsText1Browser.setObjectName(u"stsText1Browser")
+        self.stsText1Browser.viewport().setProperty("cursor", QCursor(Qt.IBeamCursor))
         self.stsText1Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
         self.stsText1Browser.setReadOnly(False)
 
@@ -356,6 +357,61 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_2.addWidget(self.stsContainer)
+
+        self.widget_5 = QWidget(self.centralwidget)
+        self.widget_5.setObjectName(u"widget_5")
+        self.widget_5.setStyleSheet(u"*{\n"
+"	background-color: rgb(36, 31, 49);\n"
+"	border-radius: 30px;\n"
+"}\n"
+"\n"
+"#group1Btn:hover{\n"
+"	color: white;\n"
+"	background-color: rgb(28, 113, 216);\n"
+"}")
+        self.horizontalLayout_5 = QHBoxLayout(self.widget_5)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(15, 0, 20, 0)
+        self.label_8 = QLabel(self.widget_5)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMaximumSize(QSize(60, 60))
+        self.label_8.setPixmap(QPixmap(u":/logo/epac.png"))
+        self.label_8.setScaledContents(True)
+
+        self.horizontalLayout_5.addWidget(self.label_8, 0, Qt.AlignLeft)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_6)
+
+        self.label_10 = QLabel(self.widget_5)
+        self.label_10.setObjectName(u"label_10")
+
+        self.horizontalLayout_5.addWidget(self.label_10, 0, Qt.AlignRight)
+
+        self.group1Btn = QPushButton(self.widget_5)
+        self.group1Btn.setObjectName(u"group1Btn")
+        font3 = QFont()
+        font3.setBold(True)
+        font3.setUnderline(False)
+        self.group1Btn.setFont(font3)
+        self.group1Btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.group1Btn.setStyleSheet(u"border-radius: 8px;")
+        self.group1Btn.setIconSize(QSize(20, 20))
+
+        self.horizontalLayout_5.addWidget(self.group1Btn, 0, Qt.AlignHCenter)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_7)
+
+        self.label_9 = QLabel(self.widget_5)
+        self.label_9.setObjectName(u"label_9")
+
+        self.horizontalLayout_5.addWidget(self.label_9, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_2.addWidget(self.widget_5)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -453,5 +509,12 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.tttBtn.setText("")
         self.stsText2Browser.setPlaceholderText("")
+        self.label_8.setText("")
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u00a9 Copyright", None))
+#if QT_CONFIG(tooltip)
+        self.group1Btn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Show Group 1</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.group1Btn.setText(QCoreApplication.translate("MainWindow", u"Group 1", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"January 2024", None))
     # retranslateUi
 
