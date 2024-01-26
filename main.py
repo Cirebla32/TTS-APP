@@ -3,7 +3,9 @@ import platform
 from ui_tts import *
 from ui_dialog import *
 from utils import *
+from PySide6.QtWidgets import QFileDialog
 
+audioPath = ""
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -19,10 +21,18 @@ class groupe1Dlg(QDialog):
         self.ui.setupUi(self)
 
 def showGroup1():
-        dlg = groupe1Dlg()
-        dlg.setWindowTitle("Group 1 Members")
-        dlg.exec()
+    dlg = groupe1Dlg()
+    dlg.setWindowTitle("Group 1 Members")
+    dlg.exec()
 
+def open_file_dialog():
+    filename, ok = QFileDialog.getOpenFileName(window, "Select a File", filter="Audio (*.wav *.mp3)")
+    if filename:
+        globals()["audioPath"] = str(filename)
+        print(str(filename))
+        return str(filename)
+    print("Erreur lors de l'ouverture du fichier")
+    return None
 
 def tts():
     text = (
@@ -40,18 +50,19 @@ def tts():
         tts_gtts(text, window.ui.languageChoiceTTS.currentIndex())
 
 
-
-
-
 def stt_recorded():
     recorded = record(5, "data/recorded_speech.mp3")
     stt_result = stt_google(recorded)
     return stt_result
 
 def stt():
-    path_to_speech = "data/tts_result.wav"
+    path_to_speech = "data/tts_result.wav" if globals()["audioPath"] == "" else globals()["audioPath"]
     stt_result = stt_google(path_to_speech)
     return stt_result
+    
+def stt_file_choiced():
+    open_file_dialog()
+    stt()
     
 def stt_google(speech):
     import speech_recognition as sr
@@ -86,7 +97,7 @@ def sts():
     sttText = window.ui.sttTextBrowser.toPlainText()
     window.ui.sttTextBrowser.clear()
     window.ui.languageChoiceSTT.setCurrentIndex(window.ui.language1ChoiceSTS.currentIndex())
-    # Le chemin de l'audio utilisé pour stt étant pareil que celui de sts
+    path_to_speech = "data/tts_result.wav" if globals()["audioPath"] == "" else globals()["audioPath"]
     text = stt()
     window.ui.languageChoiceSTT.setCurrentIndex(sttLang)
     window.ui.sttTextBrowser.clear()
@@ -120,6 +131,10 @@ def sts():
     window.ui.userInput.setPlainText(ttsText)
     window.ui.languageChoiceTTS.setCurrentIndex(ttsLang)
     window.ui.ttsChoice.setCurrentIndex(ttsTTS)
+    
+def sts_file_choiced():
+    open_file_dialog()
+    sts()
 
 
 def ttt():
@@ -132,7 +147,41 @@ def ttt():
             lang[window.ui.language2ChoiceSTS.currentIndex()],
         )
     )
+    print(">>>>>>>>>>>>>>>>>>>>>>>>")
+    
+def ttts():
+    ttt()
+    tts_pico2wave(
+        window.ui.language1ChoiceSTS.currentIndex(), 
+        window.ui.stsText1Browser.toPlainText(),
+        ''
+    )
+    tts_pico2wave(
+        window.ui.language2ChoiceSTS.currentIndex(), 
+        window.ui.stsText2Browser.toPlainText()
+    )
+    
+def exchangeSTSLanguages():
+    ttt()
+    newL2 = window.ui.language1ChoiceSTS.currentIndex()
+    window.ui.language1ChoiceSTS.setCurrentIndex(window.ui.language2ChoiceSTS.currentIndex())
+    window.ui.language2ChoiceSTS.setCurrentIndex(newL2)
+    newL2Text = window.ui.stsText1Browser.toPlainText()
+    window.ui.stsText1Browser.clear()
+    window.ui.stsText1Browser.setPlainText(window.ui.stsText2Browser.toPlainText())
+    window.ui.stsText2Browser.clear()
+    window.ui.stsText2Browser.setPlainText(newL2Text)
+    
 
+def stopRecordingSTT():
+    stopRecording()
+    globals()["audioPath"] = str('data/recorded_speech.wav')
+    stt()
+    
+def stopRecordingSTS():
+    stopRecording()
+    globals()["audioPath"] = str('data/recorded_speech.wav')
+    sts()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -142,14 +191,19 @@ if __name__ == "__main__":
     window.show()
 
     window.ui.playTTSbtn.clicked.connect(tts)
-    # window.ui.recSTTbtn.clicked.connect(stt)
-    window.ui.stopRecSTTbtn.clicked.connect(stt)
     window.ui.clearSTTbtn.clicked.connect(window.ui.sttTextBrowser.clear)
-    # window.ui.recSTSbtn.clicked.connect(stt)
-    window.ui.playSTSbtn.clicked.connect(sts)
+    window.ui.playSTSbtn.clicked.connect(ttts)
     window.ui.clearSTSbtn.clicked.connect(window.ui.stsText1Browser.clear)
     window.ui.clearSTSbtn.clicked.connect(window.ui.stsText2Browser.clear)
     window.ui.tttBtn.clicked.connect(ttt)
     window.ui.group1Btn.clicked.connect(showGroup1)
+    
+    #window.ui.recSTTbtn.clicked.connect(stt_file_choiced)
+    #window.ui.recSTSbtn.clicked.connect(sts_file_choiced)
+    window.ui.recSTTbtn.clicked.connect(startRecording)
+    window.ui.recSTSbtn.clicked.connect(startRecording)
+    window.ui.stopRecSTTbtn.clicked.connect(stopRecordingSTT)
+    window.ui.stopRecSTSbtn.clicked.connect(stopRecordingSTS)
+    window.ui.exchangeLanguage.clicked.connect(exchangeSTSLanguages)
 
     sys.exit(app.exec())
