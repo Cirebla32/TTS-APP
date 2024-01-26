@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>643</width>
-    <height>616</height>
+    <height>624</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,7 +20,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 255), stop:1 rgba(249, 158, 251, 255));</string>
+   <string notr="true">background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 55), stop:1 rgba(249, 158, 251, 55));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -82,60 +82,70 @@
            <widget class="QOpenGLWidget" name="openGLWidget"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="ttsChoice">
+           <widget class="QComboBox" name="ttsChoice">
             <property name="toolTip">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;TTS 1:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Pico2Wave [Linux command]&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;TTS 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Espeak [Linux command]&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;TTS 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Pyttsx [Python Package]&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;TTS 4:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Gtts [Google tts online | Python package]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
-            <property name="prefix">
-             <string>TTS </string>
+            <property name="currentIndex">
+             <number>0</number>
             </property>
-            <property name="minimum">
-             <number>1</number>
+            <property name="maxCount">
+             <number>2147483647</number>
             </property>
-            <property name="maximum">
-             <number>4</number>
-            </property>
+            <item>
+             <property name="text">
+              <string>Pico2Wave</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Espeak</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pyttsx</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gtts</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="languageChoiceTTS">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 1: &lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;fr-FR&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-US&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-GB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 4:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; de-DE&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 5:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; es-ES&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 6:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; it-IT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="suffix">
-             <string/>
-            </property>
-            <property name="prefix">
-             <string>Language </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>6</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="voiceChoice">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Voice 1:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Female&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Voice 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Male&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Voice 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; Robot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="prefix">
-             <string>Voice </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>3</number>
-            </property>
+           <widget class="QComboBox" name="languageChoiceTTS">
+            <item>
+             <property name="text">
+              <string>fr-FR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-US</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-GB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>de-DE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>es-ES</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>it-IT</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -255,19 +265,15 @@
            </spacer>
           </item>
           <item>
-           <widget class="QSpinBox" name="sttChoice">
+           <widget class="QComboBox" name="sttChoice">
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;STT 1:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; speech_recognition [Python Package | online]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;STT 1: speech_recognition [Python Package | online]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
-            <property name="prefix">
-             <string>STT </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>1</number>
-            </property>
+            <item>
+             <property name="text">
+              <string>SpeechRecognition</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -284,28 +290,37 @@
            </spacer>
           </item>
           <item>
-           <widget class="QSpinBox" name="languageChoiceSTT">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 1: &lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;fr-FR&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-US&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-GB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 4:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; de-DE&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 5:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; es-ES&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 6:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; it-IT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="suffix">
-             <string/>
-            </property>
-            <property name="prefix">
-             <string>Language </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>5</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
+           <widget class="QComboBox" name="languageChoiceSTT">
+            <item>
+             <property name="text">
+              <string>fr-FR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-US</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-GB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>de-DE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>es-ES</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>it-IT</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -350,7 +365,7 @@
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stop recording, and Transcript&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stop Recording&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="text">
              <string/>
@@ -452,19 +467,15 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="stsChoice">
+           <widget class="QComboBox" name="stsChoice">
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;STS 1:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;/&gt;&lt;span style=&quot; font-family:'Droid Sans Mono','monospace','monospace','Droid Sans Fallback'; font-size:14px; color:#d4d4d4;&quot;&gt;speech_recognition (stt) + deep_translator (ttt) + gtts (tts) &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Droid Sans Mono','monospace','monospace','Droid Sans Fallback'; font-size:14px; color:#d4d4d4;&quot;&gt;speech_recognition (stt) + deep_translator (ttt) + gtts (tts)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
-            <property name="prefix">
-             <string>STS </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>4</number>
-            </property>
+            <item>
+             <property name="text">
+              <string>STS 1</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -481,54 +492,94 @@
            </spacer>
           </item>
           <item>
-           <widget class="QSpinBox" name="language1ChoiceSTS">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 1: &lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;fr-FR&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-US&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-GB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 4:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; de-DE&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 5:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; es-ES&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 6:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; it-IT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="suffix">
-             <string/>
-            </property>
-            <property name="prefix">
-             <string>Language </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>5</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
+           <widget class="QComboBox" name="language1ChoiceSTS">
+            <item>
+             <property name="text">
+              <string>fr-FR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-US</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-GB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>de-DE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>es-ES</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>it-IT</string>
+             </property>
+            </item>
            </widget>
           </item>
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_7">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+          <item>
+           <widget class="QPushButton" name="exchangeLanguage">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Exchange languages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="text">
-             <string>to</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/icons/icons/Bold/repeat.svg</normaloff>:/icons/icons/Bold/repeat.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
+              <height>24</height>
+             </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="language2ChoiceSTS">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 1: &lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;fr-FR&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 2:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-US&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 3:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; en-GB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 4:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; de-DE&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 5:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; es-ES&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ffffff;&quot;&gt;Language 6:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt; it-IT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="prefix">
-             <string>Language </string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>6</number>
-            </property>
+           <widget class="QComboBox" name="language2ChoiceSTS">
+            <item>
+             <property name="text">
+              <string>fr-FR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-US</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>en-GB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>de-DE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>es-ES</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>it-IT</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -591,29 +642,6 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="playSTSbtn">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Play&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resources.qrc">
-              <normaloff>:/icons/icons/Bold/play.svg</normaloff>:/icons/icons/Bold/play.svg</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>18</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="clearSTSbtn">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
@@ -659,26 +687,55 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="tttBtn">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Translate (TTT)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resources.qrc">
-              <normaloff>:/icons/icons/Bold/arrow-right.svg</normaloff>:/icons/icons/Bold/arrow-right.svg</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>16</height>
-             </size>
-            </property>
+           <widget class="QWidget" name="widget_6" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QPushButton" name="tttBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Translate (TTT)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resources.qrc">
+                 <normaloff>:/icons/icons/Bold/arrow-right.svg</normaloff>:/icons/icons/Bold/arrow-right.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>20</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="playSTSbtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Play&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resources.qrc">
+                 <normaloff>:/icons/icons/Bold/play.svg</normaloff>:/icons/icons/Bold/play.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>18</width>
+                 <height>24</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -834,6 +891,7 @@
  <resources>
   <include location="resources.qrc"/>
   <include location="resources.qrc"/>
+  <include location="../../../.designer/backup/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

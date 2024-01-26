@@ -1,1 +1,1 @@
-Hello how are you
+how is it possible for the receiver module to retrieve the message even if the WDM vers module is used

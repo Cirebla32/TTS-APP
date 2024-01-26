@@ -18,19 +18,19 @@ def tts_espeak(
         "tts@epac>>> "
         + """espeak --lang=fr-FR --wave=data/tts_result.wav " """
         + str(text)
-        + """ " && play data/tts_result.wav"""
+        + """ " && play data/tts_result.wav&"""
     )
     a = os.system(
         "espeak -a 200 -w data/tts_result.wav -v "
-        + lang[langNum - 1]
+        + lang[langNum]
         + ' " '
         + str(text)
-        + """ " && play data/tts_result.wav"""
+        + """ " && play data/tts_result.wav&"""
     )
 
 
 def tts_pico2wave(
-    langNum=1, text="Ceci est juste un texte de test pour voir si ça marche."
+    langNum=1, text="Ceci est juste un texte de test pour voir si ça marche.", endChar='&'
 ):
     """
     Convertit un texte en parole en utilisant le moteur de synthèse vocale Pico2Wave.
@@ -48,17 +48,19 @@ def tts_pico2wave(
     print(
         "tts@epac>>> "
         + "pico2wave --lang="
-        + lang[langNum - 1]
+        + lang[langNum]
         + """ --wave=data/tts_result.wav " """
         + str(text)
-        + """ " && play data/tts_result.wav"""
+        + """ " && play data/tts_result.wav """
+        + endChar
     )
     a = os.system(
         "pico2wave --lang="
-        + lang[langNum - 1]
+        + lang[langNum]
         + """ --wave=data/tts_result.wav " """
         + str(text)
-        + """ " && play data/tts_result.wav"""
+        + """ " && play data/tts_result.wav """
+        + endChar
     )
 
 
@@ -100,7 +102,7 @@ def tts_gtts(text, langNum):
     from audioplayer import AudioPlayer
 
     lang = ["fr", "en", "en", "de", "es", "it"]
-    audio = gTTS(text=text, lang=lang[langNum - 1])
+    audio = gTTS(text=text, lang=lang[langNum])
     audio.save("data/tts_result.wav")
     AudioPlayer("data/tts_result.wav").play(block=True)
 
@@ -135,3 +137,19 @@ def record(seconds, filename):
     sd.wait()  # Wait until recording is finished
     write(filename, fs, myrecording)  # Save as WAV file
     return filename
+    
+def startRecording():
+    import os
+    a = os.system(
+        "pkill arecord"
+    )
+    a = os.system(
+        "arecord -f S16_LE -c1 -r22050 -t wav data/recorded_speech.wav &"
+    )
+
+def stopRecording():
+    import os
+    a = os.system(
+        "pkill arecord &"
+    )
+    globals()["audioPath"] = str('data/recorded_speech.wav')
