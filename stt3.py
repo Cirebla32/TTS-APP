@@ -80,13 +80,13 @@ def stt():
 
     # première methode
 
-    # audio_copy = audio.copy()
-    # audio.clear()
+    audio_copy = audio.copy()
+    audio.clear()
 
     # deuxième méthode
 
-    audio_copy = audio[endPoint:].copy()
-    endPoint = len(audio)
+    # audio_copy = audio[endPoint:].copy()
+    # endPoint = len(audio)
 
     with wave.open(path, 'w') as f:
         f.setparams((1, 2, 16000, 512, "NONE", "NONE"))

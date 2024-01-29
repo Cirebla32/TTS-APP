@@ -4,7 +4,6 @@ from ui_tts import *
 from ui_dialog import *
 from utils import *
 from PySide6.QtWidgets import QFileDialog
-
 from stt3 import *
 
 audioPath = ""
