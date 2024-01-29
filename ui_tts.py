@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttscggFeq.ui'
+## Form generated from reading UI file 'ttsbhomRw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -21,8 +21,6 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QLabel,
     QTextBrowser, QTextEdit, QVBoxLayout, QWidget)
 
 from pyqtgraph import PlotWidget
-import resources_rc
-import resources_rc
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -111,7 +109,7 @@ class Ui_MainWindow(object):
         self.playTTSbtn.setObjectName(u"playTTSbtn")
         self.playTTSbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(u":/icons/icons/Bold/play.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"icons/Bold/play.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.playTTSbtn.setIcon(icon)
         self.playTTSbtn.setIconSize(QSize(32, 24))
 
@@ -187,7 +185,7 @@ class Ui_MainWindow(object):
         self.recSTTbtn.setObjectName(u"recSTTbtn")
         self.recSTTbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
-        icon1.addFile(u":/icons/icons/Bold/mic.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"icons/Bold/mic.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.recSTTbtn.setIcon(icon1)
         self.recSTTbtn.setIconSize(QSize(18, 24))
 
@@ -197,7 +195,7 @@ class Ui_MainWindow(object):
         self.stopRecSTTbtn.setObjectName(u"stopRecSTTbtn")
         self.stopRecSTTbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon2 = QIcon()
-        icon2.addFile(u":/icons/icons/Bold/square.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"icons/Bold/square.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.stopRecSTTbtn.setIcon(icon2)
         self.stopRecSTTbtn.setIconSize(QSize(18, 24))
 
@@ -207,7 +205,7 @@ class Ui_MainWindow(object):
         self.clearSTTbtn.setObjectName(u"clearSTTbtn")
         self.clearSTTbtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
-        icon3.addFile(u":/icons/icons/Bold/trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"icons/Bold/trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.clearSTTbtn.setIcon(icon3)
         self.clearSTTbtn.setIconSize(QSize(18, 24))
 
@@ -218,7 +216,7 @@ class Ui_MainWindow(object):
 
         self.sttTextBrowser = QTextBrowser(self.sttContainer)
         self.sttTextBrowser.setObjectName(u"sttTextBrowser")
-        self.sttTextBrowser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
+        self.sttTextBrowser.setStyleSheet(u"background-color: rgba(0, 0, 0, 100);")
 
         self.verticalLayout_3.addWidget(self.sttTextBrowser)
 
@@ -275,7 +273,7 @@ class Ui_MainWindow(object):
         self.exchangeLanguage.setObjectName(u"exchangeLanguage")
         self.exchangeLanguage.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
-        icon4.addFile(u":/icons/icons/Bold/repeat.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"icons/Bold/repeat.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.exchangeLanguage.setIcon(icon4)
         self.exchangeLanguage.setIconSize(QSize(18, 24))
 
@@ -330,7 +328,7 @@ class Ui_MainWindow(object):
         self.stsText1Browser = QTextBrowser(self.widget_2)
         self.stsText1Browser.setObjectName(u"stsText1Browser")
         self.stsText1Browser.viewport().setProperty("cursor", QCursor(Qt.IBeamCursor))
-        self.stsText1Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
+        self.stsText1Browser.setStyleSheet(u"background-color: rgba(0, 0, 0, 100);")
         self.stsText1Browser.setReadOnly(False)
 
         self.horizontalLayout.addWidget(self.stsText1Browser)
@@ -343,7 +341,7 @@ class Ui_MainWindow(object):
         self.tttBtn.setObjectName(u"tttBtn")
         self.tttBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
-        icon5.addFile(u":/icons/icons/Bold/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u"icons/Bold/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.tttBtn.setIcon(icon5)
         self.tttBtn.setIconSize(QSize(20, 16))
 
@@ -365,7 +363,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setBold(False)
         self.stsText2Browser.setFont(font2)
-        self.stsText2Browser.setStyleSheet(u"background-color: rgba(255, 255, 255, 100);")
+        self.stsText2Browser.setStyleSheet(u"background-color: rgba(0, 0, 0, 100);")
         self.stsText2Browser.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.stsText2Browser)
@@ -393,7 +391,7 @@ class Ui_MainWindow(object):
         self.label_8 = QLabel(self.widget_5)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMaximumSize(QSize(60, 60))
-        self.label_8.setPixmap(QPixmap(u":/logo/epac.png"))
+        self.label_8.setPixmap(QPixmap(u"epac.png"))
         self.label_8.setScaledContents(True)
 
         self.horizontalLayout_5.addWidget(self.label_8, 0, Qt.AlignLeft)
