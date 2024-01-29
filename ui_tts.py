@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsMSPVFI.ui'
+## Form generated from reading UI file 'ttsaNINZN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -31,7 +31,8 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(643, 624)
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
-        MainWindow.setStyleSheet(u"background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 55), stop:1 rgba(249, 158, 251, 55));")
+        MainWindow.setStyleSheet(u"background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 55), stop:1 rgba(249, 158, 251, 55));\n"
+"color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
