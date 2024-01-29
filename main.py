@@ -5,6 +5,8 @@ from ui_dialog import *
 from utils import *
 from PySide6.QtWidgets import QFileDialog
 
+from stt3 import *
+
 audioPath = ""
 
 class MainWindow(QMainWindow):
@@ -63,6 +65,27 @@ def stt():
 def stt_file_choiced():
     open_file_dialog()
     stt()
+
+def callRecordSTT3():
+    lang = ["fr-FR", "en-US", "en-GB", "de-DE", "es-ES", "it-IT"]
+    recordSTT3(lang[window.ui.languageChoiceSTT.currentIndex()], 
+                window.ui.sttTextBrowser,
+                lang[window.ui.language1ChoiceSTS.currentIndex()],
+                window.ui.stsText1Browser,
+                lang[window.ui.language2ChoiceSTS.currentIndex()], 
+                window.ui.stsText2Browser, False
+                )
+
+def callRecordSTS3():
+    lang = ["fr-FR", "en-US", "en-GB", "de-DE", "es-ES", "it-IT"]
+    recordSTT3(lang[window.ui.languageChoiceSTT.currentIndex()], 
+                window.ui.sttTextBrowser,
+                lang[window.ui.language1ChoiceSTS.currentIndex()],
+                window.ui.stsText1Browser,
+                lang[window.ui.language2ChoiceSTS.currentIndex()], 
+                window.ui.stsText2Browser, True
+                )
+
     
 def stt_google(speech):
     import speech_recognition as sr
@@ -200,10 +223,14 @@ if __name__ == "__main__":
     
     #window.ui.recSTTbtn.clicked.connect(stt_file_choiced)
     #window.ui.recSTSbtn.clicked.connect(sts_file_choiced)
-    window.ui.recSTTbtn.clicked.connect(startRecording)
-    window.ui.recSTSbtn.clicked.connect(startRecording)
-    window.ui.stopRecSTTbtn.clicked.connect(stopRecordingSTT)
-    window.ui.stopRecSTSbtn.clicked.connect(stopRecordingSTS)
+    window.ui.recSTTbtn.clicked.connect(callRecordSTT3)
+    #window.ui.recSTTbtn.clicked.connect(startRecording)
+    #window.ui.recSTSbtn.clicked.connect(startRecording)
+    window.ui.recSTSbtn.clicked.connect(callRecordSTS3)
+    #window.ui.stopRecSTTbtn.clicked.connect(stopRecordingSTT)
+    window.ui.stopRecSTTbtn.clicked.connect(stopRecordSTT3)
+    window.ui.stopRecSTSbtn.clicked.connect(stopRecordSTT3)
+    #window.ui.stopRecSTSbtn.clicked.connect(stopRecordingSTS)
     window.ui.exchangeLanguage.clicked.connect(exchangeSTSLanguages)
 
     sys.exit(app.exec())

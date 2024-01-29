@@ -21,6 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 55), stop:1 rgba(249, 158, 251, 55));
+background-color: qlineargradient(spread:reflect, x1:0.453, y1:0.528409, x2:0.843373, y2:0.153, stop:0.11245 rgba(255, 255, 255, 255), stop:0.863454 rgba(26, 95, 180, 255));
 color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">

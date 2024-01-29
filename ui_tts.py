@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ttsaNINZN.ui'
+## Form generated from reading UI file 'ttsqwjJPx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -32,6 +32,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(643, 624)
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"background-color: qlineargradient(spread:repeat, x1:0.228823, y1:0.506, x2:0.446, y2:0.602227, stop:0 rgba(104, 8, 100, 55), stop:1 rgba(249, 158, 251, 55));\n"
+"background-color: qlineargradient(spread:reflect, x1:0.453, y1:0.528409, x2:0.843373, y2:0.153, stop:0.11245 rgba(255, 255, 255, 255), stop:0.863454 rgba(26, 95, 180, 255));\n"
 "color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
